@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Expenses</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100yh;
+        }
+        
+        .butn {
+            padding: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Raghav Expense App</h1>
+    <input type="text" id="inputA">
+    <input type="text" id="inputDesc">
+    <div class="butn">
+        <button id="button-click">+</button>
+    </div>
+    <h1 id="totalexp"></h1>
+    <script>
+        const element = document.querySelector("#button-click");
+        const eledesc = document.querySelector("#inputDesc")
+        const am = document.querySelector("#inputA")
+        let count = 0;
+        const head = document.querySelector("#totalexp")
+        head.textContent = count
+
+        function counterinc() {
+            const desc = eledesc.value;
+            const aam = am.value;
+            const ecp = parseInt(aam)
+            count = count + ecp;
+            head.textContent = count
+        }
+        element.addEventListener("click", counterinc, false);
+    </script>
+</body>
+
+</html>
