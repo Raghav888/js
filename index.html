@@ -30,20 +30,38 @@
         <button id="button-click">+</button>
     </div>
     <h1 id="totalexp"></h1>
+    <div id="tableexp"></div>
     <script>
         const element = document.querySelector("#button-click");
         const eledesc = document.querySelector("#inputDesc")
         const am = document.querySelector("#inputA")
         let count = 0;
         const head = document.querySelector("#totalexp")
-        head.textContent = count
+        const allexp = []
+        const tb = document.querySelector("#tableexp")
+
 
         function counterinc() {
+            const expseitem = {};
             const desc = eledesc.value;
+            console.log(desc)
             const aam = am.value;
             const ecp = parseInt(aam)
             count = count + ecp;
-            head.textContent = count
+            expseitem.desc = desc;
+            expseitem.expense = ecp;
+
+            console.log(expseitem)
+            allexp.push(expseitem)
+            const texp = `The total expense is ${count}`
+            head.textContent = texp
+            const hte = allexp.map(xpense => {
+                return `<div> ${xpense.expense} :: ${xpense.desc}</div> `
+            })
+            const jj = hte.join("")
+            console.log(jj)
+            tb.innerHTML = jj
+
         }
         element.addEventListener("click", counterinc, false);
     </script>
